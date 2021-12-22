@@ -14,14 +14,17 @@ const multipleHtmlPlugins = srcDir.filter((file) => file.match(/\.html$/)).map((
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
   devtool: 'source-map',
-  entry: path.resolve(__dirname, 'src/js/index.js'),
+  entry: {
+    app: path.resolve(__dirname, 'src/js/index.js'),
+  },
   output: {
-    filename: 'js/bundle.js',
+    filename: 'js/[name].bundle.js',
     path: path.resolve(__dirname, 'dist/'),
   },
   devServer: {
-    contentBase: '../dist',
+    contentBase: path.resolve(__dirname, 'dist/'),
     watchContentBase: true,
+    liveReload: true,
   },
   stats: {
     children: true,
@@ -56,8 +59,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    ...multipleHtmlPlugins,
+  plugins: [...multipleHtmlPlugins,
     new MiniCssExtractPlugin({
       filename: 'css/bundle.css',
     }),
