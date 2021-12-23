@@ -1,3 +1,4 @@
+import runApp from './app.js';
 import '../scss/main.scss';
 
-const DEBOUNCE_DELAY = 300;
+runApp();
