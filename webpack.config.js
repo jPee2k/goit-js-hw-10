@@ -35,6 +35,7 @@ module.exports = {
       { test: /\.html$/, use: ['html-loader'] },
       { test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader'] },
       { test: /\.s[ac]ss$/i, use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'] },
+      { test: /\.hbs$/, loader: 'handlebars-loader' },
       {
         test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,
         type: 'asset/resource',

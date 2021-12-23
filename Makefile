@@ -14,7 +14,7 @@ watch:
 	npm run watch
 
 serve:
-	npx webpack serve --open
+	npx webpack serve --open --no-stats
 
 test:
 	npm run test-windows
